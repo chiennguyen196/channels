@@ -1,2 +1,2 @@
 # channels
-A toolkit for working with golang channel
+A toolkit for working with golang channels
