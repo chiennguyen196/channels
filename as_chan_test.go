@@ -1,14 +1,16 @@
-package channels
+package channels_test
 
 import (
 	"reflect"
 	"testing"
+
+	"github.com/chiennguyen196/channels"
 )
 
 func TestAsChan(t *testing.T) {
 	values := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 
-	gotChan := AsChan(values...)
+	gotChan := channels.AsChan(values...)
 
 	actualValues := make([]int, len(values))
 	i := 0

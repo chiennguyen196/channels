@@ -1,9 +1,11 @@
-package channels
+package channels_test
 
 import (
 	"reflect"
 	"sort"
 	"testing"
+
+	"github.com/chiennguyen196/channels"
 )
 
 func TestMerge(t *testing.T) {
@@ -12,10 +14,10 @@ func TestMerge(t *testing.T) {
 	arr3 := []int{7, 8, 9}
 	expectValues := append(append(arr1, arr2...), arr3...)
 
-	outChan := Merge(
-		AsChan(arr1...),
-		AsChan(arr2...),
-		AsChan(arr3...),
+	outChan := channels.Merge(
+		channels.AsChan(arr1...),
+		channels.AsChan(arr2...),
+		channels.AsChan(arr3...),
 	)
 
 	actualValues := make([]int, 0)

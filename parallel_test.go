@@ -1,9 +1,11 @@
-package channels
+package channels_test
 
 import (
 	"reflect"
 	"sort"
 	"testing"
+
+	"github.com/chiennguyen196/channels"
 )
 
 func TestParallel(t *testing.T) {
@@ -12,10 +14,10 @@ func TestParallel(t *testing.T) {
 	for i := range giveArr {
 		giveArr[i] = i
 	}
-	inputChan := AsChan(giveArr...)
+	inputChan := channels.AsChan(giveArr...)
 	outChan := make(chan int)
 
-	Parallel(
+	channels.Parallel(
 		4, // num workers
 		func(_ int) { // execute function
 			for v := range inputChan {

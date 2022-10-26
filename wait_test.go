@@ -1,8 +1,10 @@
-package channels
+package channels_test
 
 import (
 	"sync/atomic"
 	"testing"
+
+	"github.com/chiennguyen196/channels"
 )
 
 func TestWait(t *testing.T) {
@@ -18,7 +20,7 @@ func TestWait(t *testing.T) {
 		inputFns[i] = execFn
 	}
 
-	Wait(inputFns...)
+	channels.Wait(inputFns...)
 
 	if int(count) != n {
 		t.Errorf("After Wait() got count = %d, but want %d", count, n)
